@@ -6,7 +6,7 @@ streamlit-extras
 tiktoken
 unstructured
 pytesseract
-pickle
+# pickle
 
 
 streamlit
