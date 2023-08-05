@@ -76,12 +76,12 @@ with st.sidebar:
     # st.image(img)
     add_vertical_space(2)
     st.markdown(
-        "<h1 class='title-centered'>Seriktes Chat App</h1>", unsafe_allow_html=True
+        "<h1 class='title-centered'>SEriktES Chat App</h1>", unsafe_allow_html=True
     )
 
     st.markdown(
         """
-        "Seriktes" is the app that helps with your academics. By uploading a PDF file of a paper, you can ask any question about the content.
+        ## "SEriktES" is the app that helps with your academics. By uploading a PDF file of a paper, you can ask any question about the content.
         """
     )
     add_vertical_space(11)
@@ -137,7 +137,7 @@ def load_chat_page():
 
         if query:
             # Modified prompt:
-            prompt = " You are pdf analyzer. User can ask you any question related to the content of the file, you should give detailed answer whether it's a specific keyword search, a request for summary, APA reference of the file, or anything else. Answer in the language of user."
+            prompt = "User will ask you questions about content of the file. Answer as you are user's study buddy. Encourage to study, give detailed information, give page of that information. Answer in the language of user."
 
             docs = VectorStore.similarity_search(query=query, k=3)
 
