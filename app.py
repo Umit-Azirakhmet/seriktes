@@ -1,4 +1,5 @@
 import streamlit as st
+import openai
 from dotenv import load_dotenv
 import pickle
 from PyPDF2 import PdfReader
@@ -11,6 +12,7 @@ from langchain.chains.question_answering import load_qa_chain
 from langchain.callbacks import get_openai_callback
 import os
 from PIL import Image
+
 
 APP_ICON_URL = "llog.png"
 
