@@ -63,7 +63,7 @@ st.markdown(
 """,
     unsafe_allow_html=True,
 )
-
+openai_api_key = st.secrets["OPEN_API_KEY"]
 
 # Sidebar contents
 with st.sidebar:
@@ -139,7 +139,7 @@ def load_chat_page():
 
             docs = VectorStore.similarity_search(query=query, k=3)
 
-            llm = OpenAI()
+            llm = OpenAI(api_key=openai_api_key)
             chain = load_qa_chain(llm=llm, chain_type="stuff")
             with get_openai_callback() as cb:
                 response = chain.run(
