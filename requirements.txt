@@ -1,6 +1,6 @@
 PyPDF2
 python-dotenv
-faiss-cpu
+faiss-cpu == 1.7.4
 altair
 streamlit-extras
 tiktoken
