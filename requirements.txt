@@ -1,24 +1,17 @@
-# PyPDF2
-# python-dotenv
 faiss-cpu
 altair
 streamlit-extras
 tiktoken
 unstructured
 pytesseract
-# pickle
-
-
-# streamlit
-# openai
-# langchain
 pandas
 tabulate
-
 streamlit
-openai
+#openai
 python-dotenv
 PyPDF2
-langchain   # Replace with the correct version of langchain package
-# faiss==1.5.3   # Replace with the correct version of faiss package
+langchain
 Pillow
+
+# faiss==1.5.3
+# pickle
