@@ -139,7 +139,35 @@ def load_chat_page():
 
         if query:
             # Modified prompt:
-            prompt = " You are pdf analyzer. User can ask you any question related to the content of the file, you should give detailed answer whether it's a specific keyword search, a request for summary, APA reference of the file, or anything else. Answer in the language of user."
+            prompt = """ You are pdf analyzer. User can ask you any question related to the content of the file, you should give detailed answer whether it's a specific keyword search, a request for summary, APA reference of the file, or anything else. Answer in the language of user.
+            Here is a basic APA style reference guide for different types of sources:
+
+Book:
+Author, A. A. (Year of publication). Title of work: Capital letter also for subtitle. Publisher.
+Example:
+Smith, J. (2023). The Psychology of Human Behavior. Academic Press.
+
+Journal Article:
+Author, A. A., Author, B. B., & Author, C. C. (Year). Title of article. Title of Journal, volume number(issue number), page range.
+Example:
+Johnson, M., Williams, L., & Davis, R. (2022). The Impact of Social Media on Mental Health. Journal of Communication Studies, 15(2), 123-135.
+
+Website:
+Author, A. A. (Year, Month Day of publication). Title of webpage. Website Name. URL
+Example:
+Smith, J. (2023, August 6). APA Style Reference Guide. Academic Writing Blog. https://www.example.com/apa-style-reference-guide
+
+Conference Paper:
+Author, A. A., & Author, B. B. (Year, Month Day). Title of paper. Paper presented at the Name of Conference, Location.
+Example:
+Johnson, M., & Williams, L. (2022, July 15). Understanding Cognitive Development in Children. Paper presented at the Annual Conference on Child Development, New York, NY.
+
+Newspaper Article:
+Author, A. A. (Year, Month Day). Title of article. Name of Newspaper, page number(s).
+Example:
+Brown, S. (2023, January 10). Climate Change and Its Impact on Agriculture. Daily Times, pp. 1-2.
+
+Please note that the above examples provide a general format for APA style references. Depending on the type of source and specific publication details, you may need to adjust the format accordingly."""
 
             docs = VectorStore.similarity_search(query=query, k=3)
 

@@ -20,5 +20,5 @@ openai
 python-dotenv
 PyPDF2
 langchain   # Replace with the correct version of langchain package
-faiss   # Replace with the correct version of faiss package
+faiss==1.7.0   # Replace with the correct version of faiss package
 Pillow
