@@ -12,6 +12,7 @@ python-dotenv
 PyPDF2
 langchain
 Pillow
+faiss
 
 # faiss==1.5.3
 # pickle
