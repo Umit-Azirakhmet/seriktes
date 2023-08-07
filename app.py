@@ -1,8 +1,5 @@
 import streamlit as st
-
-# import openai
 from dotenv import load_dotenv
-
 import pickle
 from PyPDF2 import PdfReader
 from streamlit_extras.add_vertical_space import add_vertical_space
@@ -24,6 +21,15 @@ st.set_page_config(
     page_icon=APP_ICON_URL,
     layout="wide",
 )
+
+
+def openChatPage():
+    # Set a session state variable to indicate that the chat page should be opened
+    st.session_state.go_to_chat = True
+    # Rerun the app to trigger navigation to the chat page
+    st.experimental_rerun()
+
+
 st.markdown(
     """
     <style type="text/css">
@@ -99,7 +105,7 @@ def load_chat_page():
         "<h1 class='title-centered' style='color: white;'>Seriktes Chat App</h1>",
         unsafe_allow_html=True,
     )
-
+    # st.button("Go back to Main Page", key="gotomain")
     # upload a PDF file
     pdf = st.file_uploader("Upload your PDF", type="pdf")
     # st.write(pdf)
@@ -192,41 +198,20 @@ def load_main_page():
         "<h1 class='title-centered' style='color: white; margin-top: 0; padding-top: 0;'>Seriktes Chat App</h1>",
         unsafe_allow_html=True,
     )
+    # st.button("Go to Chat Page", key="gotochat")
     # st.image("bg01.png", use_column_width=True)  # Make the image resizable
     img = Image.open("gr1.png")
-    new_size = (10, 10)
+    # new_size = (10, 10)
     st.image(img, use_column_width=True)
-    img = img.resize(new_size)
-    # Styled button to navigate to the chat page
-    st.markdown(
-        """
-        <button class='big-button' style='margin-top: 0; padding-top: 0;' onclick='openChatPage()'>Go to Chat Page</button>
-        """,
-        unsafe_allow_html=True,
-    )
-    # JavaScript code to handle link clicks and change pages
-    st.markdown(
-        """
-        <script>
-        const handleLinkClick = () => {
-            Streamlit.setComponentValue("go_to_chat", true);
-        };
-        </script>
-        """,
-        unsafe_allow_html=True,
-    )
+    # img = img.resize(new_size)
 
-    # JavaScript code to handle link clicks and change pages
-    st.markdown(
-        """
-        <script>
-        const handleLinkClick = () => {
-            Streamlit.setComponentValue("go_to_chat", true);
-        };
-        </script>
-        """,
-        unsafe_allow_html=True,
-    )
+    # Styled button to navigate to the chat page
+    # st.markdown(
+    #     """
+    #     <button class='big-button' onclick='openChatPage()' key='gotochat'>Go to Chat Page</button>
+    #     """,
+    #     unsafe_allow_html=True,
+    # )
 
 
 def main():
@@ -239,6 +224,24 @@ def main():
         load_main_page()
     elif selected_page == "Chat Page":
         load_chat_page()
+
+    # state = st.session_state.get("state", "main")
+
+    # if "state" not in st.session_state:
+    #     st.session_state.state = "main"
+
+    # if st.session_state.state == "main":
+    #     load_main_page()
+    #     if st.button("Go to Chat Page"):
+    #         load_chat_page()
+    # else:
+    #     load_main_page()
+
+    # elif st.session_state.state == "chat":
+    #     load_chat_page()
+    #     if st.button("Go back to Main Page"):
+    #         st.session_state.state = "main"
+    pass
 
 
 if __name__ == "__main__":
